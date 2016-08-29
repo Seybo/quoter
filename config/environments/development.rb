@@ -41,4 +41,6 @@ Rails.application.configure do
 
   # this is for Devise mailer
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # to use letter_opener gem to open sent emails in browser in development
+  config.action_mailer.delivery_method = :letter_opener
 end

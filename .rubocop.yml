@@ -1,0 +1,23 @@
+# inherit_from: .rubocop_todo.yml
+AllCops:
+  Include:
+    - '**/Gemfile'
+    - '**/Rakefile'
+  Exclude:
+   - 'bin/*'
+   - 'db/schema.rb'
+   - 'db/**/*'
+   - 'vendor/bundle/**/*'
+
+  DisplayCopNames: true
+
+Metrics/LineLength:
+  Enabled: false
+  # Max: 100
+
+Style/Documentation:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+  # EnforcedStyle: double_quotes

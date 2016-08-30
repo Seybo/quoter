@@ -38,6 +38,8 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.4.0)
     arel (6.0.3)
+    autoprefixer-rails (6.4.0.3)
+      execjs
     bcrypt (3.1.11)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
@@ -45,6 +47,12 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-sass (3.3.7)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
+    bootstrap_form (2.4.0)
+    bootswatch-rails (3.3.5)
+      railties (>= 3.1)
     builder (3.2.2)
     byebug (9.0.5)
     coderay (1.1.1)
@@ -107,6 +115,8 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
+    quiet_assets (1.1.0)
+      railties (>= 3.1, < 5.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -189,6 +199,9 @@ PLATFORMS
 
 DEPENDENCIES
   better_errors
+  bootstrap-sass (~> 3.3.6)
+  bootstrap_form
+  bootswatch-rails
   byebug
   coffee-rails (~> 4.1.0)
   devise
@@ -198,6 +211,7 @@ DEPENDENCIES
   letter_opener
   pg
   pry-rails
+  quiet_assets
   rails (= 4.2.6)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

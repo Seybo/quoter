@@ -1,0 +1,32 @@
+h3
+  'Quotes list
+
+= form_tag quotes_path, method: :get do
+  .btn-toolbar
+    = submit_tag 'Show mine', name: "select_only", class: 'btn btn-success'
+    = submit_tag 'Show all', name: "select_only", class: 'btn btn-info'
+    = link_to 'Create new', new_quote_path, class: 'btn btn-success pull-right'
+
+- if @quotes.present?
+  table.table
+    thead
+      tr
+        th Quote
+        th Author
+        th Added by
+        - if @select_only_belong_to_current_user
+            th Edit
+            th Delete
+
+    tbody
+      - @quotes.each do |quote|
+        tr
+          td = quote.text
+          td = quote.author
+          / glaux remove this try later
+          td = quote.user.try(:email) 
+          - if @select_only_belong_to_current_user
+            td = link_to 'Edit', edit_quote_path(quote), class: 'btn btn-xs btn-warning'
+            td = link_to 'Delete', quote_path(quote), method: :delete, data: { :confirm => 'Sure?' }, class: 'btn btn-xs btn-danger'
+- else
+  p No quotes yet :(

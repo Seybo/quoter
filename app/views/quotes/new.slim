@@ -1,0 +1,13 @@
+h3
+  'New Quote
+= bootstrap_form_for @quote do |f|
+  .field
+    = f.text_area :text, label: 'Quote text'
+
+  .field
+    = f.text_field :author, label: 'Quote author'
+
+  .actions.btn-toolbar
+    = f.submit 'Add', class: 'btn btn-success'
+    = link_to 'Cancel', root_path, class: 'btn btn-warning'
+    = link_to 'Back to quotes list', quotes_path, class: 'btn btn-info pull-right'

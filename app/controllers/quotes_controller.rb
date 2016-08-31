@@ -7,7 +7,11 @@ class QuotesController < ApplicationController
   def index
     @quotes = Quote.all
     @select_only_belong_to_current_user = true if params[:select_only] == "Show mine"
-    @quotes = Quote.where(user: current_user) if @select_only_belong_to_current_user
+    if @select_only_belong_to_current_user
+      Quote.where(user: current_user)
+    else
+      @quotes = Quote.where(public: true)
+    end
   end
 
   def new
@@ -17,6 +21,7 @@ class QuotesController < ApplicationController
   def create
     @quote = current_user.quotes.build(quote_params)
     @quote.author = "Anonymous" if @quote.author.empty?
+    @quote.public = true if current_user.role?(:super_admin)
     if @quote.save
       redirect_to quotes_path, notice: 'Yeah! Done!'
     else

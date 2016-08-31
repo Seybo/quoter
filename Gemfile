@@ -25,6 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'slim-rails'
 gem 'dotenv-rails'
 gem 'devise'
+gem 'cancancan', '~> 1.10'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bootstrap_form'
 gem 'bootswatch-rails'

@@ -1,6 +1,8 @@
 class QuotesController < ApplicationController
   before_action :authenticate_user!, except: :index
   before_action :find_quote, only: [:show, :edit, :destroy, :update]
+  # load_and_authorize_resource param_method: :my_sanitizer
+  load_and_authorize_resource except: :index
 
   def index
     @quotes = Quote.all
@@ -23,20 +25,24 @@ class QuotesController < ApplicationController
   end
 
   def show
+    # authorize! :read, @quote
   end
 
   def edit
+    # authorize! :edit, @quote
   end
 
   def update
+    # authorize! :update, @quote
     if @quote.update quote_params
-      redirect_to @quote, notice: 'Yay! Quote saved'
+      redirect_to quotes_path, notice: 'Yay! Quote saved'
     else
       render 'edit'
     end
   end
 
   def destroy
+    # authorize! :destroy, @quote
     @quote.destroy
     redirect_to quotes_path
   end

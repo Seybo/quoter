@@ -25,8 +25,8 @@ h3
           td = quote.author
           / glaux remove this try later
           td = quote.user.try(:email) 
-          - if @select_only_belong_to_current_user
-            td = link_to 'Edit', edit_quote_path(quote), class: 'btn btn-xs btn-warning'
-            td = link_to 'Delete', quote_path(quote), method: :delete, data: { :confirm => 'Sure?' }, class: 'btn btn-xs btn-danger'
+          / #- if @select_only_belong_to_current_user
+          td = link_to 'Edit', edit_quote_path(quote), class: 'btn btn-xs btn-warning'
+          td = link_to 'Delete', quote_path(quote), method: :delete, data: { :confirm => 'Sure?' }, class: 'btn btn-xs btn-danger'
 - else
   p No quotes yet :(
